@@ -1,0 +1,5 @@
+box_deploy_user: vagrant
+
+option_enforce_ssh_keys_login: false
+option_ufw: false
+

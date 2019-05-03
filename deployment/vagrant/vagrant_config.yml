@@ -1,0 +1,37 @@
+vagrant_box: reasonablename
+
+vagrant_user: vagrant
+vagrant_synced_folder_default_type: nfs
+vagrant_gui: false
+
+# If you need to run multiple instances of VM, set a unique hostname,
+# machine name, and IP address for each instance.
+vagrant_hostname: vagrant.loc
+vagrant_machine_name: reasonablename
+vagrant_ip: 192.168.88.88
+
+# Allow VM to be accessed via a public network interface on your host.
+# Vagrant boxes are insecure by default, so be careful. You've been warned!
+# See: https://docs.vagrantup.com/v2/networking/public_network.html
+vagrant_public_ip: ""
+# Memory and CPU to use for this VM.
+vagrant_memory: 2048
+vagrant_cpus: 1
+
+# Ensure vagrant plugins are installed.
+vagrant_plugins:
+  - name: vagrant-vbguest
+  - name: vagrant-hostsupdater
+  - name: vagrant-s3auth
+
+# The web server software to use. Can be either 'apache' or 'nginx'.
+vm_webserver: apache
+
+apache_vhosts: []
+
+vagrant_synced_folders:
+  # The first synced folder will be used for the default installation
+  - local_path: .
+    destination: /hostroot
+    type: nfs
+    create: true

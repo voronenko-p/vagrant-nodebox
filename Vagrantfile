@@ -131,14 +131,20 @@ Vagrant.configure("2") do |config|
     end
 
 # ================================== CUSTOM PROVISIONING
-#    https://www.vagrantup.com/docs/provisioning/ansible_common.html
-      config.vm.provision "ansible" do |ansible|
-          ansible.playbook = "deployment/provisioners/lamp-box/box_lamp.yml"
-          ansible.verbose = true
-          ansible.groups = {
-              "lamp_box" => [vconfig['vagrant_machine_name']]
-          }
-      end
+##    https://www.vagrantup.com/docs/provisioning/ansible_common.html
+#      config.vm.provision "ansible" do |ansible|
+#          ansible.playbook = "deployment/provisioners/lamp-box/box_lamp.yml"
+#          ansible.verbose = true
+#          ansible.groups = {
+#              "lamp_box" => [vconfig['vagrant_machine_name']]
+#          }
+#      end
+
+    # Allow tracked provisioning Vagrantfile to modify the configurations
+    [host_config_dir, host_project_dir].uniq.each do |dir|
+        eval File.read "#{dir}/Vagrantfile.provision" if File.exist?("#{dir}/Vagrantfile.provision")
+    end
+
 
 # /================================== CUSTOM PROVISIONING
 

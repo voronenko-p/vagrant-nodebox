@@ -1,0 +1,15 @@
+    config.vm.provision "ansible" do |ansible|
+        ansible.playbook = "deployment/provisioners/node-box/box_node.yml"
+        ansible.galaxy_role_file = "deployment/provisioners/node-box/requirements.yml"
+        ansible.galaxy_roles_path = "deployment/provisioners/node-box/roles"
+        ansible.verbose = true
+        ansible.groups = {
+            "node_box" => [vconfig['vagrant_machine_name']]
+        }
+        # ansible.tags = ["sa_mysql"]
+        ansible.extra_vars = {
+            box_provider: "vagrant",
+            env: "vagrant"
+        }
+    end
+

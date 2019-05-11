@@ -1,4 +1,4 @@
-vagrant_box: reasonablename
+vagrant_box: ubuntu/xenial64
 
 vagrant_user: vagrant
 vagrant_synced_folder_default_type: nfs
@@ -7,7 +7,7 @@ vagrant_gui: false
 # If you need to run multiple instances of VM, set a unique hostname,
 # machine name, and IP address for each instance.
 vagrant_hostname: vagrant.loc
-vagrant_machine_name: reasonablename
+vagrant_machine_name: nodebox
 vagrant_ip: 192.168.88.88
 
 # Allow VM to be accessed via a public network interface on your host.

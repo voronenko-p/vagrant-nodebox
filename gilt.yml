@@ -1,0 +1,6 @@
+# https://gilt.readthedocs.io/en/latest/
+  - git: https://github.com/oops-to-devops/node-box.git
+    version: master
+    dst: deployment/provisioners/node-box/
+    post_commands:
+      - make
